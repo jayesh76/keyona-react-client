@@ -32,6 +32,7 @@ class ViewBook extends Component {
       event: "",
       reference: "",
       actor: "",
+      author: "",
       village: "",
       eventDate: "",
       birthDate: "",
@@ -59,6 +60,7 @@ class ViewBook extends Component {
       event,
       reference,
       actor,
+      author,
       village,
       eventDate,
       birthDate,
@@ -80,6 +82,7 @@ class ViewBook extends Component {
       event,
       reference,
       actor,
+      author,
       village,
       eventDate,
       birthDate,
@@ -93,14 +96,13 @@ class ViewBook extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log("ID: "+id);
     this.props.getBook(id, this.props.history);
   }
  
   render() {
    
       return (
-        <Collapses bookName={this.state.bookName} 
+        <Collapses bookName={this.state.bookName} author={this.state.author} 
         bookEdition={this.state.bookEdition}  pageNumber={this.state.pageNumber} 
         subject={this.state.subject} subSubject={this.state.subSubject}
         shlok={this.state.shlok} event={this.state.event} 

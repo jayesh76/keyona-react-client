@@ -18,6 +18,7 @@ class AddBook extends Component {
       event: "",
       reference: "",
       actor: "",
+      author: "",
       village: "",
       eventDate: "",
       birthDate: "",
@@ -56,6 +57,7 @@ class AddBook extends Component {
       event: this.state.event,
       reference: this.state.reference,
       actor: this.state.actor,
+      author: this.state.author,
       village: this.state.village,
       eventDate: this.state.eventDate,
       birthDate: this.state.birthDate,
@@ -153,28 +155,52 @@ class AddBook extends Component {
                   </div>
                 </div>
                 <div className="col-md-2 m-auto">
-                  <label className="display-6 text-left">સંદર્ભ: </label>
+                  <label className="display-6 text-left">લેખક: </label>
                 </div>
                 <div className="col-md-4 m-auto">
                   <div className="form-group">
                     <input
                       type="text"
                       className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.reference
+                        "is-invalid": errors.author
                       })}
-                      placeholder="સંદર્ભ"
-                      name="reference"
-                      value={this.state.reference}
+                      placeholder="લેખક"
+                      name="author"
+                      value={this.state.author}
                       onChange={this.onChange}
                     />
+                    {errors.author && (
+                      <div className="invalid-feedback">
+                        {errors.author}
+                      </div>
+                    )}
+                  </div>
+
+                </div></div>
+                <div className="row">
+                <div className="col-md-2 m-auto">
+                  <label className="display-8 text-center">સંદર્ભ: </label>
+                </div>
+                <div className="col-md-10 m-auto">
+                  <div className="form-group">
+                  <input
+                  type="text"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.reference
+                  })}
+                  placeholder="સંદર્ભ"
+                  name="reference"
+                  value={this.state.reference}
+                  onChange={this.onChange}
+                  />
                     {errors.reference && (
                       <div className="invalid-feedback">
                         {errors.reference}
                       </div>
                     )}
                   </div>
-
-                </div></div>
+                </div>
+              </div>
               <div className="row">
                 <div className="col-md-2 m-auto">
                   <label className="display-6 text-left">મુખ્ય વિષય: </label>
@@ -289,7 +315,7 @@ class AddBook extends Component {
                 </div>
                 <div className="col-md-10 m-auto">
                   <div className="form-group">
-                    <textarea
+                    <textarea rows="4"
                       className={classnames("form-control form-control-lg", {
                         "is-invalid": errors.event
                       })}
@@ -312,7 +338,8 @@ class AddBook extends Component {
               </div>
               <div className="col-md-10 m-auto">
                 <div className="form-group">
-                  <textarea
+                  <input
+                    type="text"
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.comments
                     })}
